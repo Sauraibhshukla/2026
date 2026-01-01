@@ -1,254 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusTech | Innovative IT Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #00d4ff;
-            --secondary: #0055ff;
-            --dark: #0a0b10;
-            --light: #f4f4f4;
-            --gray: #1e1e26;
-        }
+  <meta charset="UTF-8" />
+  <title>AURÉVA — Luxury Perfume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { background: #0f0f0f; color: #fff; line-height: 1.6; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+    header {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.9)),
+                  url("https://images.unsplash.com/photo-1600180758890-6b94519c8ba4?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
 
-        body {
-            background-color: var(--dark);
-            color: white;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    header h1 {
+      font-size: 3.5rem;
+      letter-spacing: 0.2rem;
+      margin-bottom: 1rem;
+    }
 
-        /* --- Header & Nav --- */
-        header {
-            padding: 1.5rem 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            background: rgba(10, 11, 16, 0.95);
-            z-index: 1000;
-            border-bottom: 1px solid #333;
-        }
+    header p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: #ddd;
+      font-size: 1.2rem;
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            color: var(--primary);
-        }
+    .btn {
+      padding: 0.9rem 2.2rem;
+      border: 1px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      transition: all 0.3s ease;
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
+    .btn:hover {
+      background: #fff;
+      color: #000;
+    }
 
-        nav ul li {
-            margin-left: 2rem;
-        }
+    section {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
 
-        nav ul li a:hover {
-            color: var(--primary);
-        }
+    .feature {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
 
-        /* --- Hero Section --- */
-        .hero {
-            height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 10%;
-            background: radial-gradient(circle at center, #161b33 0%, #0a0b10 100%);
-        }
+    .feature:hover {
+      transform: translateY(-8px);
+    }
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .feature h3 {
+      margin-bottom: 1rem;
+      letter-spacing: 0.05rem;
+    }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            color: #ccc;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--dark);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-        }
-
-        /* --- Services --- */
-        .services {
-            padding: 5rem 10%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--gray);
-            padding: 2.5rem;
-            border-radius: 15px;
-            border: 1px solid #333;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-        }
-
-        .card h3 {
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        /* --- Contact --- */
-        .contact {
-            padding: 5rem 10%;
-            background: #0d0e14;
-            text-align: center;
-        }
-
-        input, textarea {
-            width: 100%;
-            max-width: 500px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background: var(--gray);
-            border: 1px solid #444;
-            color: white;
-            border-radius: 5px;
-        }
-
-        footer {
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid #333;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { display: none; } /* Simplified for mobile */
-        }
-    </style>
+    footer {
+      background: #080808;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">NEXUS<span>TECH</span></div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1rem;">Let's Talk</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+  <div>
+    <h1>AURÉVA</h1>
+    <p>Crafted elegance. Timeless fragrance. A signature scent for those who refuse to blend in.</p>
+    <a href="#discover" class="btn">Discover the Collection</a>
+  </div>
+</header>
 
-    <section class="hero" id="home">
-        <h1>Scalable IT Solutions for Modern Enterprises</h1>
-        <p>From Cloud Infrastructure to Custom Software Development, we empower your business with cutting-edge technology and 24/7 expert support.</p>
-        <div class="hero-btns">
-            <a href="#services" class="btn btn-primary">Our Services</a>
-        </div>
-    </section>
+<section id="discover">
+  <h2 style="margin-bottom:2rem; letter-spacing:0.15rem;">WHY AURÉVA</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>Rare Ingredients</h3>
+      <p>We source only the finest oils and botanicals from around the world.</p>
+    </div>
+    <div class="feature">
+      <h3>Master Perfumers</h3>
+      <p>Each fragrance is composed by artisans with decades of expertise.</p>
+    </div>
+    <div class="feature">
+      <h3>Long-Lasting Essence</h3>
+      <p>High concentration formulas ensure your presence is unforgettable.</p>
+    </div>
+  </div>
+</section>
 
-    <section class="services" id="services">
-        <div class="section-title">
-            <h2>Our Expertise</h2>
-            <p>Tailored tech strategies for your growth</p>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <h3>Cloud Computing</h3>
-                <p>Migration, management, and optimization for AWS, Azure, and Google Cloud platforms.</p>
-            </div>
-            <div class="card">
-                <h3>Cybersecurity</h3>
-                <p>Enterprise-grade protection, threat detection, and risk management to keep your data safe.</p>
-            </div>
-            <div class="card">
-                <h3>Custom Dev</h3>
-                <p>High-performance web and mobile applications built with the latest frameworks.</p>
-            </div>
-        </div>
-    </section>
+<footer>
+  © 2026 AURÉVA Perfumes. All rights reserved.
+</footer>
 
-    <section class="contact" id="contact">
-        <div class="section-title">
-            <h2>Start Your Project</h2>
-            <p>Ready to transform your workflow? Send us a message.</p>
-        </div>
-        <form>
-            <input type="text" placeholder="Full Name" required><br>
-            <input type="email" placeholder="Email Address" required><br>
-            <textarea placeholder="Tell us about your project" rows="5"></textarea><br>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-    </section>
+<script>
+  // simple smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 
-    <footer>
-        &copy; 2024 NexusTech Solutions Inc. All rights reserved.
-    </footer>
-
-    <script>
-        // Simple Smooth Scroll and Interaction Logic
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
