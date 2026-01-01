@@ -3,120 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechNova IT - Innovative IT Solutions</title>
-    <meta name="description" content="TechNova IT provides cutting-edge software development, cloud solutions, cybersecurity, and IT consulting services.">
-    <!-- Tailwind CSS CDN (for quick integration - production: use build process) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>NexusTech | Innovative IT Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom gradient for hero */
-        .hero-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        :root {
+            --primary: #00d4ff;
+            --secondary: #0055ff;
+            --dark: #0a0b10;
+            --light: #f4f4f4;
+            --gray: #1e1e26;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: white;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 11, 16, 0.95);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at center, #161b33 0%, #0a0b10 100%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        /* --- Services --- */
+        .services {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--gray);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* --- Contact --- */
+        .contact {
+            padding: 5rem 10%;
+            background: #0d0e14;
+            text-align: center;
+        }
+
+        input, textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: var(--gray);
+            border: 1px solid #444;
+            color: white;
+            border-radius: 5px;
+        }
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { display: none; } /* Simplified for mobile */
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 antialiased">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-900">TechNova IT</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
-                <a href="#services" class="text-gray-700 hover:text-blue-600">Services</a>
-                <a href="#about" class="text-gray-700 hover:text-blue-600">About</a>
-                <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
-            </div>
-            <button class="md:hidden text-gray-700 focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
+    <header>
+        <div class="logo">NEXUS<span>TECH</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1rem;">Let's Talk</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Scalable IT Solutions for Modern Enterprises</h1>
+        <p>From Cloud Infrastructure to Custom Software Development, we empower your business with cutting-edge technology and 24/7 expert support.</p>
+        <div class="hero-btns">
+            <a href="#services" class="btn btn-primary">Our Services</a>
         </div>
-    </nav>
+    </section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg text-white pt-24 pb-32">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Innovative IT Solutions for Modern Business</h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">We deliver custom software development, cloud computing, cybersecurity, and digital transformation services to drive your success.</p>
-            <div class="space-x-4">
-                <a href="#contact" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition">Get Started</a>
-                <a href="#services" class="border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition">Learn More</a>
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Our Expertise</h2>
+            <p>Tailored tech strategies for your growth</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Cloud Computing</h3>
+                <p>Migration, management, and optimization for AWS, Azure, and Google Cloud platforms.</p>
+            </div>
+            <div class="card">
+                <h3>Cybersecurity</h3>
+                <p>Enterprise-grade protection, threat detection, and risk management to keep your data safe.</p>
+            </div>
+            <div class="card">
+                <h3>Custom Dev</h3>
+                <p>High-performance web and mobile applications built with the latest frameworks.</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-code text-5xl text-blue-600 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-4">Software Development</h3>
-                    <p class="text-gray-600">Custom web and mobile applications built with the latest technologies for scalability and performance.</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-cloud text-5xl text-blue-600 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-4">Cloud Solutions</h3>
-                    <p class="text-gray-600">AWS, Azure, and Google Cloud migration, management, and optimization for seamless operations.</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-shield-alt text-5xl text-blue-600 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-4">Cybersecurity</h3>
-                    <p class="text-gray-600">Proactive threat detection, compliance, and security audits to protect your digital assets.</p>
-                </div>
-            </div>
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Start Your Project</h2>
+            <p>Ready to transform your workflow? Send us a message.</p>
         </div>
+        <form>
+            <input type="text" placeholder="Full Name" required><br>
+            <input type="email" placeholder="Email Address" required><br>
+            <textarea placeholder="Tell us about your project" rows="5"></textarea><br>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0d8e5695?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team working" class="rounded-lg shadow-lg">
-            </div>
-            <div class="md:w-1/2 md:pl-12">
-                <h2 class="text-4xl font-bold mb-6">About TechNova IT</h2>
-                <p class="text-lg text-gray-600 mb-6">With over 10 years of experience, TechNova IT is a trusted partner for businesses seeking innovative technology solutions. Our expert team combines deep technical knowledge with business insight to deliver results that matter.</p>
-                <ul class="space-y-4 text-gray-600">
-                    <li><i class="fas fa-check text-blue-600 mr-2"></i> Certified professionals in leading technologies</li>
-                    <li><i class="fas fa-check text-blue-600 mr-2"></i> Agile development methodologies</li>
-                    <li><i class="fas fa-check text-blue-600 mr-2"></i> 24/7 support and maintenance</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Get in Touch</h2>
-            <div class="max-w-2xl mx-auto">
-                <form class="bg-white p-8 rounded-lg shadow-lg">
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <input type="text" placeholder="Your Name" class="border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-600">
-                        <input type="email" placeholder="Your Email" class="border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-600">
-                    </div>
-                    <input type="text" placeholder="Subject" class="border border-gray-300 px-4 py-3 rounded-lg w-full mb-6 focus:outline-none focus:border-blue-600">
-                    <textarea placeholder="Message" rows="6" class="border border-gray-300 px-4 py-3 rounded-lg w-full mb-6 focus:outline-none focus:border-blue-600"></textarea>
-                    <button type="submit" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition w-full">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-10">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2026 TechNova IT. All rights reserved.</p>
-            <div class="mt-4 space-x-4">
-                <a href="#" class="hover:text-gray-300"><i class="fab fa-linkedin text-2xl"></i></a>
-                <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter text-2xl"></i></a>
-                <a href="#" class="hover:text-gray-300"><i class="fab fa-github text-2xl"></i></a>
-            </div>
-        </div>
+    <footer>
+        &copy; 2024 NexusTech Solutions Inc. All rights reserved.
     </footer>
 
+    <script>
+        // Simple Smooth Scroll and Interaction Logic
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
