@@ -1,133 +1,297 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>AURÉVA — Luxury Perfume</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-    body { background: #0f0f0f; color: #fff; line-height: 1.6; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Essence | Artisanal Fragrances</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c5a059; /* Muted Gold */
+            --bg: #faf9f6;      /* Off-white/Cream */
+            --text: #2c2c2c;    /* Soft Charcoal */
+            --accent: #e8e4db;  /* Light Stone */
+        }
 
-    header {
-      min-height: 100vh;
-      background: linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.9)),
-                  url("https://images.unsplash.com/photo-1600180758890-6b94519c8ba4?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header h1 {
-      font-size: 3.5rem;
-      letter-spacing: 0.2rem;
-      margin-bottom: 1rem;
-    }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    header p {
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      color: #ddd;
-      font-size: 1.2rem;
-    }
+        h1, h2, h3, .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
 
-    .btn {
-      padding: 0.9rem 2.2rem;
-      border: 1px solid #fff;
-      color: #fff;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.1rem;
-      transition: all 0.3s ease;
-    }
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
 
-    .btn:hover {
-      background: #fff;
-      color: #000;
-    }
+        .logo {
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text);
+        }
 
-    section {
-      padding: 5rem 2rem;
-      text-align: center;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
 
-    .feature {
-      background: #1a1a1a;
-      padding: 2rem;
-      border-radius: 12px;
-      transition: transform 0.3s ease;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
 
-    .feature:hover {
-      transform: translateY(-8px);
-    }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-    .feature h3 {
-      margin-bottom: 1rem;
-      letter-spacing: 0.05rem;
-    }
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                        url('https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            color: white;
+        }
 
-    footer {
-      background: #080808;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-  </style>
+        .hero-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .hero p {
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            transition: 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        .btn-outline {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--text);
+        }
+
+        /* --- Collections --- */
+        .section {
+            padding: 8rem 10%;
+            text-align: center;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            padding-bottom: 2rem;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 400px;
+            background-color: var(--accent);
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* --- Story Section --- */
+        .story {
+            display: flex;
+            align-items: center;
+            background: var(--accent);
+            min-height: 60vh;
+        }
+
+        .story-img {
+            flex: 1;
+            height: 60vh;
+            background: url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=1000') no-repeat center center/cover;
+        }
+
+        .story-text {
+            flex: 1;
+            padding: 5rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 4rem 10%;
+            background: white;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .story { flex-direction: column; }
+            .story-text { padding: 3rem 1rem; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <div>
-    <h1>AURÉVA</h1>
-    <p>Crafted elegance. Timeless fragrance. A signature scent for those who refuse to blend in.</p>
-    <a href="#discover" class="btn">Discover the Collection</a>
-  </div>
-</header>
+    <nav>
+        <a href="#" class="logo">L'ESSENCE</a>
+        <ul class="nav-links">
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#boutique">Boutique</a></li>
+        </ul>
+    </nav>
 
-<section id="discover">
-  <h2 style="margin-bottom:2rem; letter-spacing:0.15rem;">WHY AURÉVA</h2>
-  <div class="features">
-    <div class="feature">
-      <h3>Rare Ingredients</h3>
-      <p>We source only the finest oils and botanicals from around the world.</p>
-    </div>
-    <div class="feature">
-      <h3>Master Perfumers</h3>
-      <p>Each fragrance is composed by artisans with decades of expertise.</p>
-    </div>
-    <div class="feature">
-      <h3>Long-Lasting Essence</h3>
-      <p>High concentration formulas ensure your presence is unforgettable.</p>
-    </div>
-  </div>
-</section>
+    <section class="hero">
+        <div class="hero-content">
+            <p>The Art of Scent</p>
+            <h1>Velvet Flora</h1>
+            <a href="#collections" class="btn btn-outline">Explore the Collection</a>
+        </div>
+    </section>
 
-<footer>
-  © 2026 AURÉVA Perfumes. All rights reserved.
-</footer>
+    <section class="section" id="collections">
+        <span class="section-tag">Curated for you</span>
+        <h2>Signature Scents</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=500" alt="Perfume" class="product-img">
+                <h3>Midnight Rose</h3>
+                <p class="price">$145.00</p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&q=80&w=500" alt="Perfume" class="product-img">
+                <h3>Sandalwood Mist</h3>
+                <p class="price">$120.00</p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&q=80&w=500" alt="Perfume" class="product-img">
+                <h3>Golden Amber</h3>
+                <p class="price">$160.00</p>
+            </div>
+        </div>
+    </section>
 
-<script>
-  // simple smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
+    <section class="story" id="story">
+        <div class="story-img"></div>
+        <div class="story-text">
+            <span class="section-tag">Since 1924</span>
+            <h2>A Legacy in Every Drop</h2>
+            <p>Our fragrances are hand-poured in small batches using the finest essential oils sourced from the fields of Grasse. We believe a perfume is more than a scent; it's a silent language.</p>
+            <br>
+            <a href="#" class="btn" style="border: 1px solid var(--text); color: var(--text);">Read More</a>
+        </div>
+    </section>
 
+    <footer>
+        <span class="brand-name footer-logo">L'ESSENCE</span>
+        <p>Join our newsletter for exclusive launches.</p>
+        <div style="margin: 2rem 0;">
+            <input type="email" placeholder="Email Address" style="padding: 0.8rem; border: 1px solid #ddd; width: 250px;">
+            <button class="btn" style="background: var(--text); color: white; padding: 0.8rem 1.5rem; margin-left: -5px;">Join</button>
+        </div>
+        <p style="font-size: 0.7rem; color: #999; letter-spacing: 1px;">&copy; 2026 L'ESSENCE PARFUMERIE. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
